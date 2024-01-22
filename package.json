@@ -1,0 +1,34 @@
+{
+    "name": "@krakerxyz/utility",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/krakerxyz/utility"
+    },
+    "type": "commonjs",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "author": {
+        "name": "Josh Kraker",
+        "email": "joshkrak@gmail.com"
+    },
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf ./dist/*",
+        "build": "npm run clean && tsc && tsc -p tsconfig-cjs.json",
+        "lint": "eslint ./src/**/*.ts",
+        "prepublishOnly": "npm run build"
+    },
+    "files": [
+        "dist/"
+    ],
+    "dependencies": {
+        "typescript": "^5",
+        "uuid": "^8"
+    },
+    "devDependencies": {
+        "@types/uuid": "^8",
+        "rimraf": "^3.0.0"
+    },
+    "sideEffects": false
+}
