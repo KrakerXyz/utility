@@ -7,4 +7,4 @@ export function deepClone<T>(src: T): Writeable<T> {
 }
 
 
-type Writeable<T> = { -readonly [P in keyof T]: Writeable<T[P]> };
+export type Writeable<T> = { -readonly [P in keyof T]: Writeable<T[P]> };
