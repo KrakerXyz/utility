@@ -21,6 +21,8 @@ export function deepEquals<T extends Record<string, any>, K extends keyof T>(a: 
         if (typeof aValue !== typeof bValue) { return false; }
 
         if (Array.isArray(aValue)) {
+            if (aValue && !bValue) { return false; }
+            if (bValue && !aValue) { return false; }
             if (aValue.length !== bValue.length) { return false; }
             for (let i = 0; i < aValue.length; i++) {
                 const aArrValue = aValue[i];
