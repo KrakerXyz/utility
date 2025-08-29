@@ -6,11 +6,16 @@ export function newId(): Id {
 }
 
 export function isId(s: string): boolean {
-    return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(s);
+    try {
+        assertId(s);
+        return true;    
+    } catch {
+        return false;
+    }
 }
 
 export function assertId(s: string): asserts s is Id {
-    if (isId(s)) { return; }
+    if ( /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(s)) { return; }
     throw new Error(`Invalid ID: ${s}`);
 }
 
